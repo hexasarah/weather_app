@@ -12,11 +12,21 @@ form.addEventListener('submit', function(event) {
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
-      const weatherDescription = data.weather[0].description;
-      const temperature = data.main.temp;
       const city = data.name;
+      const date = new Date(data.dt * 1000);
+      const weatherIcon = data.weather[0].icon;
+      const temperature = data.main.temp;
+      const humidity = data.main.humidity;
+      const windSpeed = data.wind.speed;
 
-      results.innerHTML = `<p>Weather in ${city}: ${weatherDescription}, Temperature: ${temperature}*F</p>`;
+      results.innerHTML = `
+        <p>City: ${city}</p>
+        <p>Date: ${date.toLocaleDateString()}</p>
+        <img src="http://openweathermap.org/img/w/${weatherIcon}.png" alt="Weather Icon">
+        <p>Temperature: ${temperature}*F</p>
+        <p>Humidity: ${humidity}%</p>
+        <p>Wind Speed: ${windSpeed} mph</p>
+        `;
     })
     .catch(error => {
       console.error('Error fetching weather data:', error);
