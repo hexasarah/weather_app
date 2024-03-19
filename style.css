@@ -1,0 +1,30 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+header {
+  padding-top: 15px;
+  font-size: 30px;
+  color: white;
+  background-color: black;
+  height: 60px;  
+  text-align: center;
+}
+
+.search-form {
+  padding: 10px;
+  align-items: left;
+}
+.input {
+  font-size: 24px;
+}
+
+.button {
+  font-size: 24px;
+}
+
+.results {
+  border: black;
+}
+
